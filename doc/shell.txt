@@ -1,0 +1,18 @@
+
+1. 字符串截取最后2位
+
+   ksh:
+   typeset -R2 A=${B}
+
+   bash:
+   echo ${var:$((${#var}-2)):2}
+
+   
+
+   公用：
+   B=${A:$((-2))}
+   echo ${A} |grep -o "..$"
+
+   echo string|awk '{print substr($0,length($0)-1,length($0))}'
+
+   echo string|sed 's/(.*)(..$)/2/'

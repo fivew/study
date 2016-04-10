@@ -1,0 +1,4 @@
+
+1. 安装deb软件(dpkg)
+   dpkg -i  xxx
+   dpkg --contents   查看软件包内容
