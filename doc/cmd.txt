@@ -2,3 +2,9 @@
 1. 安装deb软件(dpkg)
    dpkg -i  xxx
    dpkg --contents   查看软件包内容
+
+ 2.  ubuntu 
+      - 修改core 大小限制
+        ulimit -S -c unlimited
+
+ 3. 
