@@ -22,7 +22,7 @@ int main()
     char* pBitMap = malloc(iSize);
     if (NULL == pBitMap)
     {
-		return 1;
+    return 1;
     }
     memset(pBitMap, 0, iSize);
 
@@ -34,12 +34,12 @@ int main()
     {
         // 1. 找到N属于第几个字节 N/8
         // 2. 找打N属于第几位 N%8
- 	    // 3. 将第N位设置为1
+        // 3. 将第N位设置为1
         int iBytes = iArray[i]/8;
         int iBit = iArray[i]%8;
         *(pBitMap + iBytes) |= (1<<iBit);
         //printf("%x\n", *pBitMap);
-	}
+    }
 
    // 3. 输出存放的记录
    for(i = 0; i<iSize; i++)
@@ -48,7 +48,7 @@ int main()
       for(j = 0; j<8; j++)
       {
          // printf("%X %X \n", 1<<j, *(pBitMap + i)&(1<<j));
-		 if(0 != (*(pBitMap + i)&(1<<j)))
+     if(0 != (*(pBitMap + i)&(1<<j)))
          {
             printf("%d ", i*8+j);
          }

@@ -1,0 +1,11 @@
+1. 内置宏
+    __FILE__ : 	当前文件
+    __LINE__: 	当前行号
+    __FUNCTION__:	当前函数
+    __TIME__:	当前运行时间
+    __DATE__:	当前运行日期
+    __TIMESTAMP__:	当前文件最后修改时间
+    __VA_ARGS__:	可变参数宏， 用于替换...
+    		#define DEBUG(level, ...)  printf("%d: %s\n", level ,  __VA_ARGS)
+
+2. 
