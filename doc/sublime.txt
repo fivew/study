@@ -127,4 +127,8 @@ void gtk_im_context_set_client_window (GtkIMContext *context,
 
 5. 命令
    subl命令启动sublime_text
+
+
+6. unbuntu 环境配置文件
+  ${home}/.config/sublime-text-3
    
