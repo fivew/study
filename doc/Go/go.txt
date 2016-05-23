@@ -1,0 +1,54 @@
+0.  搭建vim-go
+
+    安装Vundle.vim(vim 插件管理)
+    mkdir ~/.vim/bundle
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+
+    vi ~/.vimrc
+
+        set nocompatible              " be iMproved, required
+        filetype off                  " required
+
+        " set the runtime path to include Vundle and initialize
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+
+        " let Vundle manage Vundle, required
+        Plugin 'gmarik/Vundle.vim'
+        Plugin 'fatih/vim-go'
+        " All of your Plugins must be added before the following line
+        call vundle#end()            " required
+        filetype plugin indent on    " required
+
+
+    安装Vim-go（语法高亮，强制排版）
+    打开vim
+    执行:PluginInstall
+
+    安装其他特性
+    vi /ect/profile
+        export GOLANG_ROOT_DIR=/usr/local/go
+        export PATH=$PATH:$GOLANG_ROOT_DIR/bin
+
+    source /etc/profile
+
+    vi ~/.bashrc
+        export GOPATH=/home/yuu/golang
+
+    source ~/.bashrc
+
+    
+
+    vim
+    :GoInstallBinaries
+
+
+1.  查看版本
+    go version 
+
+2.  运行
+    go run xx.go
+
+3. 编译
+    go build xx.go
+    ./xx
