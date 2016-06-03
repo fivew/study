@@ -43,6 +43,15 @@
     :GoInstallBinaries
 
 
+
+go 安装
+https://go-zh.org/doc/install#安装包
+
+
+http://docs.plhwin.com/gopl-zh/ch1/ch1-02.html Go语言圣经
+https://tour.go-zh.org/list 入门指南
+
+
 1.  查看版本
     go version 
 
