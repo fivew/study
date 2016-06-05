@@ -61,3 +61,5 @@ https://tour.go-zh.org/list 入门指南
 3. 编译
     go build xx.go
     ./xx
+
+4. http://docs.plhwin.com/gopl-zh/ch1/ch1-07.html
