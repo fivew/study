@@ -80,10 +80,31 @@ continue   for           import   return      var
 # 类型
      type 别名　实际名
      type momey  float64
-     不同的别名之间不可以做类型转换，即使是同一种类型的别名
+     两个值有着不同的类型，则不能直接进行比较。
 
-     Celsius类型的参数c出现在了函数名的前面，表示声明的是Celsius类型的一个叫名叫String的方法
-    func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+     A类型的参数c出现在了函数名的前面，表示声明的是A类型的一个叫名叫String的方法
+     ```go
+    func (c A) String() string { return fmt.Sprintf("%g°C", c) }
     fmt.Println(c.String())
+    ```
 
 # 包 package
+    - 大写字母开头，表示包外可见，可以导出的
+    - import导入包不可以使用绝对路径，需要将包放置到${GOPATH}或${GOROOT}中
+    - 每个包文件前面使用**package name** 声明属于哪个包，所以一个包可以有多个文件
+
+## 包级变量初始化
+    - 优先解决有依赖顺序的初始化，在按照声明的顺序初始化
+    - 如果一个包有多个文件，则按照文件名依次发给编译器初始化
+    - 对于复杂的初始化，使用 func init(){}函数实现。 初始化函数无法被调用。在main函数之前，被调用
+
+    初始化顺序关系如下：  有依赖关系 -> 无依赖关系的（多个文件按照文件名顺序） -> 初始化函数（多个文件按照文件名顺序）
+
+
+# 基础数据类型
+- 类型转换 T(x)
+- 请注意fmt的两个使用技巧。通常Printf格式化字符串包含多个%参数时将会包含对应相同数量的额外操作数，但是%之后的[1]副词告诉Printf函数再次使用第一个操作数。第二，%后的#副词告诉Printf在用%o、%x或%X输出时生成0、0x或0X前缀。
+
+## 整形
+- int8、int16、int32和int64  有符号
+- uint8、uint16、uint32和uint64  无符号

@@ -6,6 +6,19 @@
  2.  ubuntu 
       - 修改core 大小限制
         ulimit -S -c unlimited
+     - 修改core文件名格式及路径
+        echo"/corefile/core-%e-%p-%t" >/proc/sys /kernel/core_pattern，可以将core文件统一生成到/corefile目录下，产生的文件名为core-命令名-pid-时间戳
+
+        以下是参数列表:
+        %p - insert pid into filename 添加pid
+        %u - insert current uid into filename 添加当前uid
+        %g - insert current gid into filename 添加当前gid
+        %s - insert signal that caused the coredump into the filename  添加导致产生core的信号
+        %t - insert UNIX time that the coredump occurred into filename  添加core文件生成时的unix时间
+        %h - insert hostname where the coredump happened into filename  添加主机名
+        %e - insert coredumping executable name into filename  添加命令名
+
+        /proc/sys /kernel/core_uses_pid可以控制core文件的文件名中是否添加pid作为扩展。文件内容为1，表示添加pid作为扩展名
 
  3.  文字转换为字符画
      figlet 123
