@@ -11,3 +11,79 @@
 %v          变量的自然形式（natural format）
 %T          变量的类型
 %%          字面上的百分号标志（无操作数）
+
+
+# 关键字
+break      default       func     interface   select
+case       defer         go       map         struct
+chan       else          goto     package     switch
+const      fallthrough   if       range       type
+continue   for           import   return      var
+
+＃预定义字符
+内建常量: true false iota nil
+
+内建类型: int int8 int16 int32 int64
+          uint uint8 uint16 uint32 uint64 uintptr
+          float32 float64 complex128 complex64
+          bool byte rune string error
+
+内建函数: make len cap new append copy close delete
+          complex real imag
+          panic recover
+
+
+# 命名
+名字的开头字母的大小写决定了名字在包外的可见性。
+如果一个名字是大写字母开头的（译注：必须是在函数外部定义的包级名字；包级函数名本身也是包级名字），那么它将是导出的，也就是说可以被外部的包访问，例如fmt包的Printf函数就是导出的，可以在fmt包外部访问。包本身的名字一般总是用小写字母。
+
+
+# 声明
+    var          变量
+    const      常量
+    type        类型
+    func        函数
+
+    var 变量名字 [类型 |= 表达式]
+
+    未初始化，默认值：
+    数值类型变量对应的零值是0，
+    布尔类型变量对应的零值是false，
+    字符串类型对应的零值是空字符串
+    接口或引用类型（包括slice、map、chan和函数）变量对应的零值是nil
+
+    var i, j, k int                              // int, int, int
+    var b, f, s = true, 2.3, "four"     // bool, float64, string
+
+    简短声明：
+    ：=
+
+# 指针
+   地址： &p /new(T) 
+   取值： *p
+   
+
+
+   指针不可运算
+
+
+# 赋值
+- 常见赋值
+    =     常见赋值
+    +=   二元运算缩写
+    ++/--  自增/自减    跟C++不一样，这个是个语句不是运算，无法实现 A=B++
+
+- 元组赋值，跟python一样， 赋值前，等号后边先做运算
+    x, y = 1, 2   // 多个变量赋值
+    x, y = y, x   //交换
+
+# 类型
+     type 别名　实际名
+     type momey  float64
+     不同的别名之间不可以做类型转换，即使是同一种类型的别名
+
+     Celsius类型的参数c出现在了函数名的前面，表示声明的是Celsius类型的一个叫名叫String的方法
+    func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+    fmt.Println(c.String())
+
+# 包 package

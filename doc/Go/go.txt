@@ -62,4 +62,8 @@ https://tour.go-zh.org/list 入门指南
     go build xx.go
     ./xx
 
-4. http://docs.plhwin.com/gopl-zh/ch1/ch1-07.html
+4.  查看帮助
+　 godoc  packagename
+     go doc packagename   [funcname]
+
+http://docs.plhwin.com/gopl-zh/ch1/ch1-07.html

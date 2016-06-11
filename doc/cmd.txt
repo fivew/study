@@ -7,4 +7,13 @@
       - 修改core 大小限制
         ulimit -S -c unlimited
 
- 3. 
+ 3.  文字转换为字符画
+     figlet 123
+     123：
+      _ ____  _____ 
+    / |___ \|___ / 
+    | | __) | |_ \ 
+    | |/ __/ ___) |
+    |_|_____|____/ 
+
+    在线转换：http://www.network-science.de/ascii/
