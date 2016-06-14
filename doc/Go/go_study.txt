@@ -1,44 +1,38 @@
-
-# 格式化类型
-
-%d          十进制整数
-%x, %o, %b  十六进制，八进制，二进制整数。
-%f, %g, %e  浮点数： 3.141593 3.141592653589793 3.141593e+00
-%t          布尔：true或false
-%c          字符（rune） (Unicode码点)
-%s          字符串
-%q          带双引号的字符串"abc"或带单引号的字符'c'
-%v          变量的自然形式（natural format）
-%T          变量的类型
-%%          字面上的百分号标志（无操作数）
-
-
-# 关键字
+# 0x00 基础知识
+## 关键字
+```
 break      default       func     interface   select
 case       defer         go       map         struct
 chan       else          goto     package     switch
 const      fallthrough   if       range       type
 continue   for           import   return      var
-
-＃预定义字符
-内建常量: true false iota nil
-
-内建类型: int int8 int16 int32 int64
-          uint uint8 uint16 uint32 uint64 uintptr
-          float32 float64 complex128 complex64
-          bool byte rune string error
-
-内建函数: make len cap new append copy close delete
-          complex real imag
-          panic recover
-
-
-# 命名
+```
+## 预定义字符
+- 内建常量
+```
+true    false   iota    nil
+```
+- 内建类型: 
+```
+int     int8    int16   int32   int64
+uint    uint8   uint16  uint32  uint64  uintptr
+float32 float64 complex128  complex64
+bool    byte    rune    string  error
+```
+- 内建函数: 
+```
+make len cap new append copy close delete
+complex real imag
+panic recover
+```
+----
+##命名
 名字的开头字母的大小写决定了名字在包外的可见性。
 如果一个名字是大写字母开头的（译注：必须是在函数外部定义的包级名字；包级函数名本身也是包级名字），那么它将是导出的，也就是说可以被外部的包访问，例如fmt包的Printf函数就是导出的，可以在fmt包外部访问。包本身的名字一般总是用小写字母。
 
 
-# 声明
+##声明
+```
     var          变量
     const      常量
     type        类型
@@ -57,54 +51,87 @@ continue   for           import   return      var
 
     简短声明：
     ：=
-
-# 指针
+```
+## 指针
+```
    地址： &p /new(T) 
    取值： *p
-   
-
 
    指针不可运算
+```  
 
-
-# 赋值
+## 赋值
 - 常见赋值
+```
     =     常见赋值
     +=   二元运算缩写
     ++/--  自增/自减    跟C++不一样，这个是个语句不是运算，无法实现 A=B++
-
+```
 - 元组赋值，跟python一样， 赋值前，等号后边先做运算
+```
     x, y = 1, 2   // 多个变量赋值
     x, y = y, x   //交换
+```
 
-# 类型
+## 类型
+```
      type 别名　实际名
      type momey  float64
      两个值有着不同的类型，则不能直接进行比较。
-
+```
      A类型的参数c出现在了函数名的前面，表示声明的是A类型的一个叫名叫String的方法
-     ```go
+```go
     func (c A) String() string { return fmt.Sprintf("%g°C", c) }
     fmt.Println(c.String())
-    ```
-
+```
 # 包 package
-    - 大写字母开头，表示包外可见，可以导出的
-    - import导入包不可以使用绝对路径，需要将包放置到${GOPATH}或${GOROOT}中
-    - 每个包文件前面使用**package name** 声明属于哪个包，所以一个包可以有多个文件
+- 大写字母开头，表示包外可见，可以导出的
+- import导入包不可以使用绝对路径，需要将包放置到${GOPATH}或${GOROOT}中
+- 每个包文件前面使用**package name** 声明属于哪个包，所以一个包可以有多个文件
 
 ## 包级变量初始化
-    - 优先解决有依赖顺序的初始化，在按照声明的顺序初始化
-    - 如果一个包有多个文件，则按照文件名依次发给编译器初始化
-    - 对于复杂的初始化，使用 func init(){}函数实现。 初始化函数无法被调用。在main函数之前，被调用
+- 优先解决有依赖顺序的初始化，在按照声明的顺序初始化
+- 如果一个包有多个文件，则按照文件名依次发给编译器初始化
+- 对于复杂的初始化，使用 func init(){}函数实现。 初始化函数无法被调用。在main函数之前，被调用
 
-    初始化顺序关系如下：  有依赖关系 -> 无依赖关系的（多个文件按照文件名顺序） -> 初始化函数（多个文件按照文件名顺序）
+初始化顺序关系如下：  有依赖关系 -> 无依赖关系的（多个文件按照文件名顺序） -> 初始化函数（多个文件按照文件名顺序）
 
 
-# 基础数据类型
+## 基础数据类型
 - 类型转换 T(x)
 - 请注意fmt的两个使用技巧。通常Printf格式化字符串包含多个%参数时将会包含对应相同数量的额外操作数，但是%之后的[1]副词告诉Printf函数再次使用第一个操作数。第二，%后的#副词告诉Printf在用%o、%x或%X输出时生成0、0x或0X前缀。
 
 ## 整形
 - int8、int16、int32和int64  有符号
 - uint8、uint16、uint32和uint64  无符号
+
+----
+# 0x01 格式化输出
+
+## 格式化符号
+- %d          十进制整数
+- %x,       十六进制
+- %o        八进制
+- %b        二进制整数。
+- %f, %g, %e  浮点数： 3.141593 3.141592653589793 3.141593e+00
+- %t          布尔：true或false
+- %c          字符（rune） (Unicode码点)
+- %s          字符串
+- %q          带双引号的字符串"abc"或带单引号的字符'c'
+- %v          变量的自然形式（natural format）
+- %T          变量的类型
+- %%          字面上的百分号标志（无操作数）
+
+## fmt.Printf
+- [1] : 替代多次相同的输出参数， 如一个参数需要输出多次，可以这样写:
+```go
+// 用[1] 表示第一个参数
+fmt.Printf("%d, %[1]d, %[1]d\n", i)
+```
+
+- %# ： 输出16进制，8进制前面的符号。
+```go
+fmt.Printf("%d#x", 123)
+```
+
+- 

@@ -17,5 +17,5 @@ func main() {
 
 	var c tmpconv.F = 123
 	fmt.Println(c.String())
-	fmt.Printf("pc is %d\n", tmpconv.Pc)
+	fmt.Printf("pc is %d, %#[1]X\n", tmpconv.Pc)
 }
