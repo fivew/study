@@ -30,3 +30,10 @@
     |_|_____|____/ 
 
     在线转换：http://www.network-science.de/ascii/
+
+4. ps 
+   -L 查看进程
+
+5. top
+   -p  进程号   --  查看指定进程
+   H  -- 查看线程
