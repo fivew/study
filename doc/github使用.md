@@ -70,14 +70,14 @@ git pull
 git pull git://github.com/tom/test.git
  
 - 另外版本控制系統的branch功能也很有意思，若同时修改bug，又要加入新功能，可以fork出一个branch：一个专门修bug，一个专门加入新功能，等到稳定后再merge合并
-git branch bug_fix # 建立branch，名为bug_fix
-git checkout bug_fix # 切换到bug_fix
-git checkout master #切换到主要的repo
-git merge bug_fix #把bug_fix这个branch和现在的branch合并
+git branch bug_fix  建立branch，名为bug_fix
+git checkout bug_fix  切换到bug_fix
+git checkout master 切换到主要的repo
+git merge bug_fix 把bug_fix这个branch和现在的branch合并
  
 - 若有remote的branch，想要查看并checkout
-git branch -r # 查看远程branch
-git checkout -b bug_fix_local bug_fix_remote #把本地端切换为远程的bug_fix_remote branch并命名为bug_fix_local
+git branch -r  查看远程branch
+git checkout -b bug_fix_local bug_fix_remote 把本地端切换为远程的bug_fix_remote branch并命名为bug_fix_local
  
 - 还有其它可以查看repo状态的工具
 git log #可以查看每次commit的改变
