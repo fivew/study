@@ -4,6 +4,7 @@
    在用户上创建一个repository
 
 2. 在本地建立一个文件夹，然后做一些全局变量的初始化
+
    git config --global user.name  "用户名或者用户ID"
    git config --global user.email  "邮箱"
 
